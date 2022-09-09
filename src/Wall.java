@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class Wall implements Structure {
     BlockFabric blockFabric = new BlockFabric();
@@ -9,8 +8,8 @@ public class Wall implements Structure {
 
     @Override
     public BlockFabric findBlockByColor(String color) {
-        for(int i=0; i<blocks.size(); i++ ){
-            if(color.equals(blocks.get(i).getColor())){
+        for (int i = 0; i < blocks.size(); i++) {
+            if (color.equals(blocks.get(i).getColor())) {
                 return blocks.get(i);
             }
         }
@@ -20,8 +19,8 @@ public class Wall implements Structure {
     @Override
     public List findBlocksByMaterial(String material) {
         List<BlockFabric> blocksByMaterial = new ArrayList<>();
-        for(BlockFabric b : blocks){
-            if(b.getMaterial().equals(material)){
+        for (BlockFabric b : blocks) {
+            if (b.getMaterial().equals(material)) {
                 blocksByMaterial.add(b);
             }
 
@@ -48,6 +47,7 @@ interface Structure {
 
 interface Block {
     String getColor();
+
     String getMaterial();
 }
 
@@ -55,7 +55,7 @@ interface CompositeBlock extends Block {
     List getBlocks();
 }
 
-class BlockFabric implements CompositeBlock{
+class BlockFabric implements CompositeBlock {
 
     private String color;
     String material;
